@@ -1,0 +1,12 @@
+<div class="container center">
+  <div class="row">
+    <%= form_for [current_user, @link] do |f| %>
+    <%= f.text_field :title, placeholder: "Title" %>
+    <br>
+    <%= f.text_field :url, placeholder: "URL" %>
+    <br>
+    <%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :put %>
+    <% end %><br>
+    <h2>All Links</h2>
+  </div>
+</div>
