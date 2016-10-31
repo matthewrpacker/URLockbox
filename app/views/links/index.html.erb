@@ -16,7 +16,8 @@
           <th>Title</th>
           <th>URL</th>
           <th>Status</th>
-          <th>Modify</th>
+          <th>Modify Status</th>
+          <th>Edit Link</th>
         </tr>
       </thead>
 
@@ -27,14 +28,12 @@
           <td><%= link.url %></td>
           <% if link.read == false %>
           <td class="unread">Unread</td>
-          <td>
-            <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
-          </td>
+          <td><%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link.id), method: :put %></td>
           <% else %>
           <td class="read">Read</td>
-          <td>
-            <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
+          <td><%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link.id), method: :put %></td>
           <% end %>
+          <td> <%= link_to "Edit Link", edit_user_link_path(current_user, link), class: "btn btn-primary btn-xs" %> </td>
         </tr>
         <% end %>
       </tbody>
