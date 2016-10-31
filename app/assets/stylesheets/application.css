@@ -23,11 +23,11 @@
 }
 
 .read {
-  color: green
+  color: red
 }
 
 .unread {
-  color: red
+  color: green
 }
 
 td {
