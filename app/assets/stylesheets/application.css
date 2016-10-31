@@ -18,10 +18,19 @@
    text-align: center;
  }
 
+.center-table {
+  margin-left: 310px;
+}
+
 .read {
   color: green
 }
 
 .unread {
   color: red
+}
+
+td {
+  padding-right: 50px;
+  padding-bottom: 10px;
 }
