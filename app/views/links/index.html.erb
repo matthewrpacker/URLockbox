@@ -26,12 +26,12 @@
           <td><%= link.title %></td>
           <td><%= link.url %></td>
           <% if link.read == false %>
-          <td>Unread</td>
+          <td class="unread">Unread</td>
           <td>
             <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
           </td>
           <% else %>
-          <td>Read</td>
+          <td class="read">Read</td>
           <td>
             <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
           <% end %>
