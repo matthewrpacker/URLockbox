@@ -44,7 +44,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
-  gem 'selenium-webdriver'
 end
 
 gem 'rails_12factor', group: :production
