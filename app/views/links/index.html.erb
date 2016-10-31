@@ -1,18 +1,27 @@
 <div class="container center">
 <%= form_for [current_user, @link] do |f| %>
-<%= f.text_field :title, placeholder: "Title" %>
-<br>
-<%= f.text_field :url, placeholder: "URL" %>
-<br>
-<%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :post %>
-<% end %><br>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <br>
+  <%= f.text_field :url, placeholder: "URL" %>
+  <br>
+  <%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :post %>
+  <% end %><br>
 </div>
 
 <div class="container center">
-    <% @links.each do |link| %>
-    <p>
-      Title: <%= link.title %><br>
-      URL: <%= link.url %>
-    </p><br>
+  <% @links.each do |link| %>
+  <p>
+    Title: <%= link.title %><br>
+    URL: <%= link.url %><br>
+    <% if link.read == false %>
+    <p class="unread">
+      Status: Unread <%= link_to "Mark as Read", user_link_path(current_user, link.id), method: :put, class: "btn btn-primary" %>
+    </p>
+    <% else %>
+    <p class="read">
+      Status: Read <%= link_to "Mark as Unread", user_link_path(current_user, link.id), method: :put, class: "btn btn-primary" %>
+    </p>
     <% end %>
+  </p><br>
+  <% end %>
 </div>

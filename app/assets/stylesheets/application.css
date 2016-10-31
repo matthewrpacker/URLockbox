@@ -17,3 +17,11 @@
  .center {
    text-align: center;
  }
+
+.read {
+  color: green
+}
+
+.unread {
+  color: red
+}
