@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  resources :users, only: [:new, :create]
-  resources :links, only: [:index]
+  resources :users, only: [:new, :create] do
+    resources :links, only: [:index, :create]
+  end
 end

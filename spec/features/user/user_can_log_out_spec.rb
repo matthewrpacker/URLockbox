@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User Can Logout", type: :feature do
   scenario "from links index" do
-    User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
+    user = User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
 
     visit login_path
 
@@ -11,7 +11,7 @@ RSpec.feature "User Can Logout", type: :feature do
     fill_in "Password Confirmation", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(links_path)
+    expect(current_path).to eq(user_links_path(user))
     expect(page).to have_content('Logout')
 
     click_on "Logout"

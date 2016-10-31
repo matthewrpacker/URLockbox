@@ -12,7 +12,9 @@ RSpec.feature "User Can Login or Sign Up", type: :feature do
     fill_in "Password Confirmation", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(links_path)
+    current_user = User.last.id
+
+    expect(current_path).to eq(user_links_path(current_user))
     expect(page).to have_content('Logout')
   end
 
@@ -39,7 +41,7 @@ RSpec.feature "User Can Login or Sign Up", type: :feature do
   end
 
   scenario "existing user sign in" do
-    User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
+    user = User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
 
     visit login_path
 
@@ -48,12 +50,12 @@ RSpec.feature "User Can Login or Sign Up", type: :feature do
     fill_in "Password Confirmation", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(links_path)
+    expect(current_path).to eq(user_links_path(user))
     expect(page).to have_content('Logout')
   end
 
   scenario "existing user sign in with invalid information" do
-    User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
+    user = User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
 
     visit login_path
 

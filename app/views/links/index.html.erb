@@ -1,0 +1,20 @@
+<div class="container center">
+<%= form_for [current_user, @link] do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <br>
+  <%= f.text_field :url, placeholder: "URL" %>
+  <br>
+  <%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :post %>
+  <% end %>
+</div>
+
+<div class="container center">
+  <ol>
+  <% @links.each do |link| %>
+  <li>
+  Title: <%= link.title %><br>
+  URL: <%= link.url %>
+</li><br>
+  <% end %>
+</ol>
+</div>
