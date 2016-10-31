@@ -18,10 +18,9 @@ class LinksController < ApplicationController
   end
 
   def update
-    @link = Link.find(params[:user_id])
-    # if link.read === false
-      @link.update(read: true)
-    # end
+    @link = Link.find(params[:id])
+    @link.read ? @link.update(read: false) : @link.update(read: true)
+    @link.save
     redirect_to user_links_path(current_user)
   end
 

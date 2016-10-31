@@ -28,16 +28,12 @@
           <% if link.read == false %>
           <td>Unread</td>
           <td>
-            <button type="button" class="btn btn-success" aria-label="Left Align">
-              <span class="" aria-hidden="true">Mark as Read</span>
-            </button>
+            <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
           </td>
           <% else %>
           <td>Read</td>
           <td>
-            <button type="button" class="btn btn-danger" aria-label="Left Align">
-              <span class="" aria-hidden="true">Mark as Unread</span>
-            </button>
+            <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
           <% end %>
         </tr>
         <% end %>
