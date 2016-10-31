@@ -5,6 +5,7 @@ RSpec.feature 'User can see root path' do
     visit '/'
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content('Log In or Sign Up')
+    expect(page).to have_content('Sign Up')
+    expect(page).to have_content('Log In')
   end
 end
