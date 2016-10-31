@@ -12,6 +12,8 @@ class LinksController < ApplicationController
       flash[:notice] = "Link Created!!"
       redirect_to user_links_path(current_user)
     else
+      redirect_to user_links_path(current_user)
+      flash[:notice] = "Invalid URL."
     end
   end
 
