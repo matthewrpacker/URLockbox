@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
 
-      redirect_to links_path
+      redirect_to user_links_path(current_user)
     else
       flash.now[:danger] = "Invalid login"
       render :new
