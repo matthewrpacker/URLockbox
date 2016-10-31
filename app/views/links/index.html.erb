@@ -1,20 +1,43 @@
 <div class="container center">
-<%= form_for [current_user, @link] do |f| %>
-  <%= f.text_field :title, placeholder: "Title" %>
-  <br>
-  <%= f.text_field :url, placeholder: "URL" %>
-  <br>
-  <%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :post %>
-  <% end %>
-</div>
+  <div class="row">
+    <%= form_for [current_user, @link] do |f| %>
+    <%= f.text_field :title, placeholder: "Title" %>
+    <br>
+    <%= f.text_field :url, placeholder: "URL" %>
+    <br>
+    <%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :post %>
+    <% end %><br>
+    <h2>All Links</h2>
+  </div>
+  <div class="row center-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>URL</th>
+          <th>Status</th>
+          <th>Modify</th>
+        </tr>
+      </thead>
 
-<div class="container center">
-  <ol>
-  <% @links.each do |link| %>
-  <li>
-  Title: <%= link.title %><br>
-  URL: <%= link.url %>
-</li><br>
-  <% end %>
-</ol>
+      <tbody>
+        <% @links.each do |link| %>
+        <tr>
+          <td><%= link.title %></td>
+          <td><%= link.url %></td>
+          <% if link.read == false %>
+          <td class="unread">Unread</td>
+          <td>
+            <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
+          </td>
+          <% else %>
+          <td class="read">Read</td>
+          <td>
+            <%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link), method: :put %>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
