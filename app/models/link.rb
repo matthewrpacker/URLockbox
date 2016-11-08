@@ -6,4 +6,8 @@ class Link < ApplicationRecord
   def status
     self.read ? "Mark as Unread" : "Mark as Read"
   end
+
+  def type
+    self.read ? "read" : "unread"
+  end
 end
