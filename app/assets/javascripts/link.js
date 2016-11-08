@@ -1,4 +1,5 @@
 $(function () {
+  // mark as read and unread
   $("button.toggle").on("click", function (event) {
     event.preventDefault();
     var row = $(this).closest("tr")
@@ -27,6 +28,7 @@ $(function () {
     })
   })
 
+  // search bar
   $("#typed").keyup(function () {
     var data = this.value.toUpperCase().split(" ")
     var allRows = $("#searchBody").find("tr")
@@ -49,26 +51,43 @@ $(function () {
     }).show()
   })
 
+  // filter by status
   var table = $("#linkTable")[0]
 
   function evaluateStatus(status) {
     for (var i = 0, row; row = table.rows[i]; i++) {
       $(row).show()
-       for (var j = 0, col; col = row.cells[j]; j++) {
-         if(col.textContent == status) {
-           $(row).hide()
-         }
-       }
+      for (var j = 0, col; col = row.cells[j]; j++) {
+        if(col.textContent == status) {
+          $(row).hide()
+        }
+      }
     }
   }
 
   $("button.filter-read").on("click", function (event) {
-    event.preventDefault();
+    event.preventDefault()
     evaluateStatus('unread')
   })
 
   $("button.filter-unread").on("click", function (event) {
-    event.preventDefault();
+    event.preventDefault()
     evaluateStatus('read')
+  })
+
+
+  $("button.sort-alpha").on("click", function (event) {
+    event.preventDefault()
+
+    var tableBody = $('#searchBody')
+    var listitems = tableBody.children('tr').get()
+
+    listitems.sort(function(a, b) {
+      var firstRow = $(a).text().toUpperCase()
+      var secondRow = $(b).text().toUpperCase()
+
+      return (firstRow < secondRow) ? -1 : (firstRow > secondRow) ? 1 : 0
+    })
+    $.each(listitems, function(index, currentRow) { tableBody.append(currentRow) })
   })
 })
