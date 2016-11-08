@@ -10,6 +10,7 @@
     <h2>All Links</h2>
   </div>
   <div class="row center-table">
+    <input id="typed" placeholder="Search by title or url">
     <table>
       <thead>
         <tr>
@@ -21,7 +22,7 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody id="searchBody">
         <% @links.each do |link| %>
         <tr class="<%= link.type %>" data-link-id="<%= link.id %>">
           <td><%= link_to "#{link.title}", link.url %></td>
