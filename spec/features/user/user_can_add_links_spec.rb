@@ -8,7 +8,6 @@ RSpec.feature "User Can Add Links", type: :feature do
 
     fill_in "Email", with: "matt@example.com"
     fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
     click_on "Submit"
 
     expect(current_path).to eq(user_links_path(user))
@@ -29,7 +28,6 @@ RSpec.feature "User Can Add Links", type: :feature do
 
     fill_in "Email", with: "matt@example.com"
     fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
     click_on "Submit"
 
     expect(current_path).to eq(user_links_path(user))
