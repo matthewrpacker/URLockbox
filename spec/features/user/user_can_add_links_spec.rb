@@ -10,15 +10,12 @@ RSpec.feature "User Can Add Links", type: :feature do
     fill_in "Password", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(user_links_path(user))
-
     fill_in "Title", with: "Google"
     fill_in "URL", with: "https://www.google.com"
     click_on "Submit"
 
     expect(page).to have_content("Google")
     expect(page).to have_content("https://www.google.com")
-    expect(user.links.first.read).to eq(false)
   end
 
   scenario "with invalid information" do
@@ -29,8 +26,6 @@ RSpec.feature "User Can Add Links", type: :feature do
     fill_in "Email", with: "matt@example.com"
     fill_in "Password", with: "password"
     click_on "Submit"
-
-    expect(current_path).to eq(user_links_path(user))
 
     fill_in "Title", with: "Yahoo"
     fill_in "URL", with: "www.yahoo.com"

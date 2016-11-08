@@ -1,35 +1,39 @@
 require 'rails_helper'
 
 RSpec.feature "User Can Modify Link Read Status", type: :feature do
-  scenario "change unread to read" do
-    user = User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
+  scenario "change unread to read", type: :feature, js: true do
+    email = rand(100)
 
-    visit login_path
+    visit root_path
 
-    fill_in "Email", with: "matt@example.com"
+    click_on "Sign Up"
+
+    expect(current_path).to eq(new_user_path)
+
+    fill_in "Email", with: "Matt#{email}@example.com"
     fill_in "Password", with: "password"
+    fill_in "Password Confirmation", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(user_links_path(user))
+    current_user = User.last
 
     fill_in "Title", with: "Google"
     fill_in "URL", with: "https://www.google.com"
     click_on "Submit"
 
+    current_user = User.last
     expect(page).to have_content("Google")
     expect(page).to have_content("https://www.google.com")
-    expect(user.links.first.read).to eq(false)
-    expect(page).to have_content("unread")
+    expect(current_user.links.first.read).to eq(false)
     expect(page).to have_content("Mark as Read")
 
     click_on "Mark as Read"
 
     expect(page).to have_content("read")
-    expect(page).to have_content("Mark as Unread")
 
-    click_on "Mark as Unread"
+    click_on "Mark as unread"
 
     expect(page).to have_content("unread")
-    expect(page).to have_content("Mark as Read")
+    expect(page).to have_content("Mark as read")
   end
 end
