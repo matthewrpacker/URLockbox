@@ -20,7 +20,6 @@
           <th>Edit Link</th>
         </tr>
       </thead>
-
       <tbody>
         <% @links.each do |link| %>
         <% if link.read == false %>
@@ -28,7 +27,7 @@
           <td><%= link_to "#{link.title}", link.url %></td>
           <td><%= link_to "#{link.url}", link.url %></td>
           <td>Unread</td>
-          <td><%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link.id), method: :put %></td>
+          <td><%= link_to (link.status), user_link_path(current_user, link.id), method: :put %></td>
           <td> <%= link_to "Edit Link", edit_user_link_path(current_user, link), class: "btn btn-primary btn-xs" %> </td>
         </tr>
         <% else %>
@@ -36,7 +35,7 @@
           <td><%= link_to "#{link.title}", link.url %></td>
           <td><%= link_to "#{link.url}", link.url %></td>
           <td>Read</td>
-          <td><%= link_to (link.read ? "Mark as Unread" : "Mark as Read"), user_link_path(current_user, link.id), method: :put %></td>
+          <td><%= link_to (link.status), user_link_path(current_user, link.id), method: :put %></td>
           <td> <%= link_to "Edit Link", edit_user_link_path(current_user, link), class: "btn btn-primary btn-xs" %> </td>
         </tr>
         <% end %>
