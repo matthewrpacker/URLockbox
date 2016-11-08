@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User Can Edit Links", type: :feature do
   scenario "with valid information" do
-    email = rand(100)
+    email = rand(1000)
 
     visit root_path
 
@@ -44,7 +44,7 @@ RSpec.feature "User Can Edit Links", type: :feature do
   end
 
   scenario "with invalid information" do
-    email = rand(100)
+    email = rand(1000)
 
     visit root_path
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User Can Login or Sign Up", type: :feature do
   scenario "guest user sign up" do
-    email = rand(100)
+    email = rand(1000)
 
     visit root_path
 
@@ -22,7 +22,7 @@ RSpec.feature "User Can Login or Sign Up", type: :feature do
   end
 
   scenario "guest user sign up with invalid information" do
-    email = rand(100)
+    email = rand(1000)
     visit root_path
     click_on "Sign Up"
 
@@ -45,7 +45,7 @@ RSpec.feature "User Can Login or Sign Up", type: :feature do
   end
 
   scenario "existing user sign in" do
-    email = rand(100)
+    email = rand(1000)
     user = User.create(email: "matt#{email}@example.com", password: "password", password_confirmation: "password")
 
     visit login_path

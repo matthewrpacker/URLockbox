@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User Can Modify Link Read Status", type: :feature do
   scenario "change unread to read", type: :feature, js: true do
-    email = rand(100)
+    email = rand(1000)
 
     visit root_path
 
