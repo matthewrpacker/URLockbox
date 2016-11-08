@@ -19,17 +19,17 @@ RSpec.feature "User Can Modify Link Read Status", type: :feature do
     expect(page).to have_content("Google")
     expect(page).to have_content("https://www.google.com")
     expect(user.links.first.read).to eq(false)
-    expect(page).to have_content("Unread")
+    expect(page).to have_content("unread")
     expect(page).to have_content("Mark as Read")
 
     click_on "Mark as Read"
 
-    expect(page).to have_content("Read")
+    expect(page).to have_content("read")
     expect(page).to have_content("Mark as Unread")
 
     click_on "Mark as Unread"
 
-    expect(page).to have_content("Unread")
+    expect(page).to have_content("unread")
     expect(page).to have_content("Mark as Read")
   end
 end
