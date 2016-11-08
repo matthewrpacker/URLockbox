@@ -23,11 +23,11 @@
 
       <tbody>
         <% @links.each do |link| %>
-        <tr class="<%= link.type %>">
+        <tr class="<%= link.type %>" data-link-id="<%= link.id %>">
           <td><%= link_to "#{link.title}", link.url %></td>
           <td><%= link_to "#{link.url}", link.url %></td>
-          <td> <%= link.type %> </td>
-          <td><%= link_to (link.status), user_link_path(current_user, link.id), method: :put %></td>
+          <td><%= link.type %></td>
+          <td><button type="button" name="button" class="toggle btn btn-primary btn-xs"> <%= link.status %> </button></td>
           <td> <%= link_to "Edit Link", edit_user_link_path(current_user, link), class: "btn btn-primary btn-xs" %> </td>
         </tr>
         <% end %>
