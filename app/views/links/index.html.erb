@@ -23,7 +23,7 @@
 
       <tbody>
         <% @links.each do |link| %>
-        <tr class="<%= link.type %>" data-target="<%= link.id %>" data-type=" <%= link.type %> ">
+        <tr class="<%= link.type %>" data-target="<%= link.id %>" data-type="<%= link.type %>" data-title="<%= link.title %>" data-url="<%= link.url %>" data-status="<%= link.status %>" data-user="<%= link.user_id %>">
           <td><%= link_to "#{link.title}", link.url %></td>
           <td><%= link_to "#{link.url}", link.url %></td>
           <td> <%= link.type %> </td>
