@@ -14,23 +14,24 @@
  *= require_self
  */
 
- .center {
-   text-align: center;
+
+  .center {
+    text-align: center;
+  }
+
+ .center-table {
+   margin-left: 310px;
  }
 
-.center-table {
-  margin-left: 310px;
-}
+ .read {
+   background: pink;
+ }
 
-.read {
-  color: red
-}
+ .unread {
+   background: lightgreen;
+ }
 
-.unread {
-  color: green
-}
-
-td {
-  padding-right: 50px;
-  padding-bottom: 10px;
-}
+ td {
+   padding-right: 50px;
+   padding-bottom: 10px;
+ }
