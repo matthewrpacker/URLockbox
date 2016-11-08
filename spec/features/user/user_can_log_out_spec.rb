@@ -10,7 +10,6 @@ RSpec.feature "User Can Logout", type: :feature do
     fill_in "Password", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(user_links_path(user))
     expect(page).to have_content('Logout')
 
     click_on "Logout"
