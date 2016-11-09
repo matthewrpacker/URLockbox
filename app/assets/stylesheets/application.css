@@ -1,67 +1,94 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
 
 
-  .center {
-    text-align: center;
-  }
+main {
+  text-align: center;
+}
 
- .center-table {
-   margin-left: -70px;
- }
+.header {
+  margin-top: -50px;
+}
 
- .read {
-   background: pink;
- }
+.log-in {
+  text-align: center;
+  margin-left: 460px;
+  margin-top: 20px;
+}
 
- .unread {
-   background: lightgreen;
- }
+.sign-up {
+  text-align: center;
+  margin-left: 460px;
+  margin-top: 20px;
+}
+.center {
+  text-align: center;
+}
 
- /*td {
-   padding-right: 50px;
-   padding-bottom: 10px;
- }*/
+.center-table {
+  margin-left: -70px;
+  margin-bottom: 50px;
+}
 
- table{
-     border: 1px solid black;
-     margin-top: 20px;
-     table-layout: fixed;
-     width: 250px;
- }
+.alert-messages {
+  position: fixed;
+  top: 47px;
+  left: 0;
+  right: 0;
+  z-index: 7000;
+}
 
- th, td {
-     text-align: center;
-     overflow: hidden;
-     width: 250px;
- }
+.read {
+  background: pink;
+}
 
- #typed {
-   margin-right: 10px;
- }
+.unread {
+  background: lightgreen;
+}
 
- .sort-alpha {
-   margin-right: 10px;
- }
+table{
+  border: 1px solid black;
+  margin-top: 20px;
+  table-layout: fixed;
+  width: 250px;
+}
 
- .filter-read {
-   margin-right: 10px;
- }
+th, td {
+  text-align: center;
+  overflow: hidden;
+  width: 250px;
+}
 
- .logout {
-   margin-left: 20px;
-   margin-top: 20px;
- }
+tr {
+  border: 3px groove black;
+}
+
+#typed {
+  margin-right: 10px;
+}
+
+.sort-alpha {
+  margin-right: 10px;
+}
+
+.filter-read {
+  margin-right: 10px;
+}
+
+.logout {
+  margin-left: 20px;
+  margin-top: 20px;
+}
