@@ -1,12 +1,12 @@
 <div class="container center">
+  <h2>Edit Link</h2>
   <div class="row">
     <%= form_for [current_user, @link] do |f| %>
     <%= f.text_field :title, placeholder: "Title" %>
-    <br>
+    <br><br>
     <%= f.text_field :url, placeholder: "URL" %>
-    <br>
+    <br><br>
     <%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :put %>
     <% end %><br>
-    <h2>All Links</h2>
   </div>
 </div>
