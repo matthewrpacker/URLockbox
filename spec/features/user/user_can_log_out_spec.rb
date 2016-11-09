@@ -1,14 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "User Can Logout", type: :feature do
-  scenario "from links index" do
-    user = User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
-
-    visit login_path
-
-    fill_in "Email", with: "matt@example.com"
-    fill_in "Password", with: "password"
-    click_on "Submit"
+  scenario "from links index", type: :feature, js: true do
+    create_user_and_sign_in
 
     expect(page).to have_content('Logout')
 

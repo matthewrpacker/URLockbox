@@ -1,21 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "User Can Edit Links", type: :feature do
-  scenario "with valid information" do
-    email = rand(1000)
-
-    visit root_path
-
-    click_on "Sign Up"
-
-    # expect(current_path).to eq(new_user_path)
-
-    fill_in "Email", with: "Matt#{email}@example.com"
-    fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
-    click_on "Submit"
-
-    current_user = User.last
+  scenario "with valid information", type: :feature, js: true do
+    create_user_and_sign_in
 
     fill_in "Title", with: "Google"
     fill_in "URL", with: "https://www.google.com"
@@ -29,13 +16,9 @@ RSpec.feature "User Can Edit Links", type: :feature do
 
     click_on "Edit Link"
 
-    # expect(current_path).to eq(edit_user_link_path(user, link))
-
     fill_in "Title", with: "Yahoo"
     fill_in "URL", with: "https://www.yahoo.com"
     click_on "Submit"
-
-    # expect(current_path).to eq(user_links_path(user))
 
     expect(page).to have_content("Yahoo")
     expect(page).to have_content("https://www.yahoo.com")
@@ -44,20 +27,7 @@ RSpec.feature "User Can Edit Links", type: :feature do
   end
 
   scenario "with invalid information" do
-    email = rand(1000)
-
-    visit root_path
-
-    click_on "Sign Up"
-
-    # expect(current_path).to eq(new_user_path)
-
-    fill_in "Email", with: "Matt#{email}@example.com"
-    fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
-    click_on "Submit"
-
-    current_user = User.last
+    create_user_and_sign_in
 
     fill_in "Title", with: "Google"
     fill_in "URL", with: "https://www.google.com"
@@ -70,8 +40,6 @@ RSpec.feature "User Can Edit Links", type: :feature do
     link = Link.last
 
     click_on "Edit Link"
-
-    # expect(current_path).to eq(edit_user_link_path(user, link))
 
     fill_in "Title", with: "Yahoo"
     fill_in "URL", with: "www.yahoo.com"

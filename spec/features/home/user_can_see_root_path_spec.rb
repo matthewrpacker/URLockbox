@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User can see root path' do
-  scenario 'guest user' do
+  scenario 'guest user', type: :feature, js: true do
     visit '/'
 
     expect(current_path).to eq(root_path)

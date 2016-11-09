@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "User Can Login or Sign Up", type: :feature do
-  scenario "guest user sign up" do
-    email = rand(1000)
+  scenario "guest user sign up", type: :feature, js: true do
+    email = rand(10000)
 
     visit root_path
 
@@ -17,12 +17,11 @@ RSpec.feature "User Can Login or Sign Up", type: :feature do
 
     current_user = User.last.id
 
-    # expect(current_path).to eq(user_links_path(current_user))
     expect(page).to have_content('Logout')
   end
 
   scenario "guest user sign up with invalid information" do
-    email = rand(1000)
+    email = rand(10000)
     visit root_path
     click_on "Sign Up"
 
@@ -45,7 +44,7 @@ RSpec.feature "User Can Login or Sign Up", type: :feature do
   end
 
   scenario "existing user sign in" do
-    email = rand(1000)
+    email = rand(10000)
     user = User.create(email: "matt#{email}@example.com", password: "password", password_confirmation: "password")
 
     visit login_path
