@@ -63,3 +63,17 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+
+def create_user_and_sign_in
+  email = rand(10000)
+
+  visit root_path
+
+  click_on "Sign Up"
+
+  fill_in "Email", with: "Matt#{email}@example.com"
+  fill_in "Password", with: "password"
+  fill_in "Password Confirmation", with: "password"
+  click_on "Submit"
+end

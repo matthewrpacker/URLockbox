@@ -1,14 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "User Can Add Links", type: :feature do
-  scenario "with valid information" do
-    user = User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
-
-    visit login_path
-
-    fill_in "Email", with: "matt@example.com"
-    fill_in "Password", with: "password"
-    click_on "Submit"
+  scenario "with valid information", type: :feature, js: true do
+    create_user_and_sign_in
 
     fill_in "Title", with: "Google"
     fill_in "URL", with: "https://www.google.com"
@@ -19,13 +13,7 @@ RSpec.feature "User Can Add Links", type: :feature do
   end
 
   scenario "with invalid information" do
-    user = User.create(email: "matt@example.com", password: "password", password_confirmation: "password")
-
-    visit login_path
-
-    fill_in "Email", with: "matt@example.com"
-    fill_in "Password", with: "password"
-    click_on "Submit"
+    create_user_and_sign_in
 
     fill_in "Title", with: "Yahoo"
     fill_in "URL", with: "www.yahoo.com"
