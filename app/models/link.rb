@@ -2,6 +2,7 @@ class Link < ApplicationRecord
   belongs_to :user
   validates :url, presence: true
   validates :url, url: true
+  validates :title, presence: true
 
   def status
     self.read ? "Mark as Unread" : "Mark as Read"
