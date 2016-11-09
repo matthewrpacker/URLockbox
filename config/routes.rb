@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   resources :users, only: [:new, :create] do
-    resources :links, only: [:index, :create, :update, :edit] do
-      put '/', to: 'links#change'
-    end
+    resources :links, only: [:index, :create, :update, :edit]
   end
 
   namespace :api do
