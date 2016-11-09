@@ -1,11 +1,12 @@
 <div class="container center">
+  <h1>Sign Up</h1>
 <%= form_for [@user] do |f| %>
 <%= f.text_field :email, placeholder: "Email" %>
-<br>
+<br><br>
 <%= f.password_field :password, placeholder: "Password" %>
-<br>
+<br><br>
 <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
-<br>
+<br><br>
 <%= f.submit "Submit", class: "btn btn-primary btn-sm" %>
 <% end %>
 </div>

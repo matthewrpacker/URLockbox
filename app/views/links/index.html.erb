@@ -1,5 +1,5 @@
 <div class="container center">
-  <div class="row">
+  <div class="row header">
     <h1>Enter New Link</h1>
     <%= form_for [current_user, @link] do |f| %>
     <%= f.text_field :title, placeholder: "Title" %>
@@ -33,11 +33,11 @@
             <%= link_to "#{link.url}", link.url %><br>
             <% @scraper = Scraper.new(link.url) %>
             <b><%= @scraper.title %></b><br>
-            <%= @scraper.summary %>
+            <%= @scraper.message %>
           </td>
           <td><%= link.type %></td>
-          <td><button type="button" name="button" class="toggle btn btn-primary btn-xs"> <%= link.status %> </button></td>
-          <td> <%= link_to "Edit Link", edit_user_link_path(current_user, link), class: "btn btn-primary btn-xs" %> </td>
+          <td><button type="button" name="button" class="toggle btn btn-primary btn-sm"> <%= link.status %> </button></td>
+          <td> <%= link_to "Edit Link", edit_user_link_path(current_user, link), class: "btn btn-primary btn-sm" %> </td>
         </tr>
         <% end %>
       </tbody>

@@ -32,4 +32,8 @@ class Scraper
 
     h1 ? header : paragraph
   end
+
+  def message
+    "Visit #{self.title} and enjoy!  #{self.summary}"
+  end
 end
