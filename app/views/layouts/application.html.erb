@@ -17,7 +17,7 @@
   <%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
   <% end %>
   <% if current_user %>
-  <%= link_to "Logout", logout_path, method: :delete %>
+  <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-danger logout" %>
   <% else %>
   <%= link_to "Log In", login_path, class: "btn btn-primary" %>
   <%= link_to "Sign Up", new_user_path, class: "btn btn-primary"   %>

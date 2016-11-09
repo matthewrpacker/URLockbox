@@ -1,19 +1,20 @@
 <div class="container center">
   <div class="row">
+    <h1>Enter New Link</h1>
     <%= form_for [current_user, @link] do |f| %>
     <%= f.text_field :title, placeholder: "Title" %>
-    <br>
+    <br><br>
     <%= f.text_field :url, placeholder: "URL" %>
-    <br>
+    <br><br>
     <%= f.submit "Submit", class: "btn btn-primary btn-sm", method: :post %>
-    <% end %><br>
+    <% end %>
     <h2>All Links</h2>
   </div>
   <div class="row center-table">
     <input id="typed" placeholder="Search by title or url">
-    <button type="button" name="button" class="sort-alpha btn btn-warning btn-xs">Sort Alphabetically</button>
-    <button type="button" name="button" class="filter-read btn btn-warning btn-xs">Filter Read</button>
-    <button type="button" name="button" class="filter-unread btn btn-warning btn-xs">Filter Unread</button>
+    <button type="button" name="button" class="sort-alpha btn btn-primary btn-sm">Sort Alphabetically</button>
+    <button type="button" name="button" class="filter-read btn btn-primary btn-sm">Filter Read</button>
+    <button type="button" name="button" class="filter-unread btn btn-primary btn-sm">Filter Unread</button>
     <table id="linkTable">
       <thead>
         <tr>

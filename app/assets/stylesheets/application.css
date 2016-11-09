@@ -20,7 +20,7 @@
   }
 
  .center-table {
-   margin-left: 310px;
+   margin-left: -70px;
  }
 
  .read {
@@ -31,7 +31,37 @@
    background: lightgreen;
  }
 
- td {
+ /*td {
    padding-right: 50px;
    padding-bottom: 10px;
+ }*/
+
+ table{
+     border: 1px solid black;
+     margin-top: 20px;
+     table-layout: fixed;
+     width: 250px;
+ }
+
+ th, td {
+     text-align: center;
+     overflow: hidden;
+     width: 250px;
+ }
+
+ #typed {
+   margin-right: 10px;
+ }
+
+ .sort-alpha {
+   margin-right: 10px;
+ }
+
+ .filter-read {
+   margin-right: 10px;
+ }
+
+ .logout {
+   margin-left: 20px;
+   margin-top: 20px;
  }
